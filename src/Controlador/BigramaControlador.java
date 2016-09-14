@@ -16,11 +16,19 @@ import java.util.Map;
  * @author david
  */
 public class BigramaControlador {
-    private final BigramaContenedor modelo;
-    private final Vista vista;
+    private BigramaContenedor modelo;
+    private Vista vista;
 
     public BigramaControlador(BigramaContenedor modelo, VistaConsola vista) {
         this.modelo = modelo;
+        this.vista = vista;
+    }
+
+    public void setModelo(BigramaContenedor modelo) {
+        this.modelo = modelo;
+    }
+
+    public void setVista(Vista vista) {
         this.vista = vista;
     }
     
@@ -85,5 +93,9 @@ public class BigramaControlador {
     
     public void verRepBigrama(Bigrama bigrama){
         vista.verRepBigrama(modelo.getHashMap(), bigrama);
+    }
+    
+    public Bigrama leerBrigramaBlocking(){
+        return vista.leerBigramaBlocking();
     }
 }

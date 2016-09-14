@@ -31,4 +31,9 @@ public class VistaConsola extends Vista{
         Integer valor = hashMap.get(bigrama);
         System.out.println(bigrama + ": " + valor);
     }
+    
+    @Override
+    public Bigrama leerBigramaBlocking(){
+        return new Bigrama("", "");
+    }
 }

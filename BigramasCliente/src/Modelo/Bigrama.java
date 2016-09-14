@@ -78,4 +78,3 @@ public class Bigrama implements Serializable{
         return true;
     }
 }
-

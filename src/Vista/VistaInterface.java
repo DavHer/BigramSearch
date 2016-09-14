@@ -15,4 +15,5 @@ import java.util.Map;
 public interface VistaInterface {
     public void verRepListaBigramas(Map<Bigrama, Integer> hashMap);
     public void verRepBigrama(Map<Bigrama, Integer> hashMap, Bigrama bigrama);
+    public Bigrama leerBigramaBlocking();
 }
