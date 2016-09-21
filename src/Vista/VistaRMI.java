@@ -15,20 +15,16 @@ import java.util.Map;
 public class VistaRMI extends Vista{
 
     Bigrama bigrama = null;
-    String resultado = "";
+    Integer resultado = null;
 
     public void setBigrama(Bigrama bigrama) {
         this.bigrama = bigrama;
     }
 
-    public String getResultado() {
+    public Integer getResultado() {
         return resultado;
     }
 
-    public void setResultado(String resultado) {
-        this.resultado = resultado;
-    }
-    
     @Override
     public void verRepListaBigramas(Map<Bigrama, Integer> hashMap) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -38,7 +34,7 @@ public class VistaRMI extends Vista{
     public void verRepBigrama(Map<Bigrama, Integer> hashMap, Bigrama bigrama) {
         Integer valor = hashMap.get(bigrama);
         System.out.println(bigrama + ": " + valor);
-        this.resultado = bigrama + ": " + valor;
+        this.resultado = valor;
     }
 
     @Override

@@ -14,7 +14,5 @@ import java.rmi.RemoteException;
  * @author herdoiza
  */
 public interface ServidorRMI extends Remote{
-    public void setBigram(Bigrama bigrama) throws RemoteException;
-    public String getResultado() throws RemoteException;
-    public void setResultado(String resultado) throws RemoteException;
+    public Integer requestBigramCount(Bigrama bigrama) throws RemoteException;
 }
