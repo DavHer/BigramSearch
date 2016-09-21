@@ -31,7 +31,7 @@ public class BigramaControlador {
     public void setVista(Vista vista) {
         this.vista = vista;
     }
-    
+
     public void setBigramaArchivo(String archivo) {
         this.modelo.setArchivo(archivo);
     }
@@ -44,10 +44,14 @@ public class BigramaControlador {
         return modelo.getArchivo();
     }
 
+    public Vista getVista() {
+        return vista;
+    }
+
     public Map<Bigrama, Integer> getBigramaHashMap() {
         return modelo.getHashMap();
     }
-    
+
     public void cargarBigramas() {
         String bigramaString;
         Bigrama bigrama;
@@ -55,7 +59,7 @@ public class BigramaControlador {
         int posPrimerBigrama = 0;
         int posSegundoBigrama = 0;
         Integer valor;
-        
+
         // Encuentra el primer bigrama y guarda la posicion
         for (int i = 0; i < modelo.getArchivo().length(); i++) {
             if (modelo.getArchivo().charAt(i) == ' ') {
@@ -86,15 +90,15 @@ public class BigramaControlador {
             }
         }
     }
-    
+
     public void verRepListaBigramas(){
         vista.verRepListaBigramas(modelo.getHashMap());
     }
-    
+
     public void verRepBigrama(Bigrama bigrama){
         vista.verRepBigrama(modelo.getHashMap(), bigrama);
     }
-    
+
     public Bigrama leerBrigramaBlocking(){
         return vista.leerBigramaBlocking();
     }

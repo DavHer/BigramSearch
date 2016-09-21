@@ -3,17 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/david/NetBeansProjects/Tarea1_SD/src/Vista/Vista.java</file>
-            <file>file:/home/david/NetBeansProjects/Tarea1_SD/src/Vista/VistaConsola.java</file>
-            <file>file:/home/david/NetBeansProjects/Tarea1_SD/src/Utils/Archivo.java</file>
-            <file>file:/home/david/NetBeansProjects/Tarea1_SD/src/Main/Main.java</file>
-            <file>file:/home/david/NetBeansProjects/Tarea1_SD/src/Vista/VistaInterface.java</file>
-            <file>file:/home/david/NetBeansProjects/Tarea1_SD/src/Modelo/BigramaContenedor.java</file>
-            <file>file:/home/david/NetBeansProjects/Tarea1_SD/src/Controlador/BigramaControlador.java</file>
-            <file>file:/home/david/NetBeansProjects/Tarea1_SD/src/Vista/VistaServidor.java</file>
-            <file>file:/home/david/NetBeansProjects/Tarea1_SD/src/Main/MainServidor.java</file>
-            <file>file:/home/david/NetBeansProjects/Tarea1_SD/src/Modelo/Bigrama.java</file>
-            <file>file:/home/david/NetBeansProjects/Tarea1_SD/src/Servidor/Servidor.java</file>
+            <file>file:/C:/Users/herdoiza/Documents/NetBeansProjects/bigrama-search/src/Servidor/ServidorRMI.java</file>
+            <file>file:/C:/Users/herdoiza/Documents/NetBeansProjects/bigrama-search/src/Vista/Vista.java</file>
+            <file>file:/C:/Users/herdoiza/Documents/NetBeansProjects/bigrama-search/src/Main/MainServidor.java</file>
+            <file>file:/C:/Users/herdoiza/Documents/NetBeansProjects/bigrama-search/src/Vista/VistaRMI.java</file>
+            <file>file:/C:/Users/herdoiza/Documents/NetBeansProjects/bigrama-search/src/Vista/VistaInterface.java</file>
+            <file>file:/C:/Users/herdoiza/Documents/NetBeansProjects/bigrama-search/src/Vista/VistaServidor.java</file>
+            <file>file:/C:/Users/herdoiza/Documents/NetBeansProjects/bigrama-search/src/Servidor/Servidor.java</file>
+            <file>file:/C:/Users/herdoiza/Documents/NetBeansProjects/bigrama-search/src/Controlador/BigramaControlador.java</file>
+            <file>file:/C:/Users/herdoiza/Documents/NetBeansProjects/bigrama-search/src/Servidor/ServidorRMIImpl.java</file>
         </group>
     </open-files>
 </project-private>
