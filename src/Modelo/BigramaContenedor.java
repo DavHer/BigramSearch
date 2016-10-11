@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.nio.MappedByteBuffer;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -15,6 +17,8 @@ import java.util.Map;
 public class BigramaContenedor {
     private Map<Bigrama, Integer> hashMap;
     private String archivo;
+    private MappedByteBuffer buffer;
+    private ArrayList<Bigrama> lista;
 
     public BigramaContenedor() {
         hashMap = new LinkedHashMap<>();
@@ -40,5 +44,13 @@ public class BigramaContenedor {
 
     public Map<Bigrama, Integer> getHashMap() {
         return hashMap;
+    }
+
+    public MappedByteBuffer getBuffer() {
+        return buffer;
+    }
+
+    public void setBuffer(MappedByteBuffer buffer) {
+        this.buffer = buffer;
     }
 }

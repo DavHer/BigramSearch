@@ -17,18 +17,28 @@ public class Bigrama implements Serializable{
     String word2;
 
     public Bigrama(String word1) {
-        this.word1 = word1;
+        this.word1 = word1.intern();
         this.word2 = null;
     }
 
     public Bigrama(String word1, String word2) {
-        this.word1 = word1;
-        this.word2 = word2;
+        this.word1 = word1.intern();
+        this.word2 = word2.intern();
     }
-    
+
     public Bigrama(String words[]) {
-        this.word1 = words[0];
-        this.word2 = words[1];
+        if(words.length == 2){
+            this.word1 = words[0].intern();
+            this.word2 = words[1].intern();
+        }
+        else if(words.length == 1){
+            this.word1 = words[0].intern();
+            this.word2 = "".intern();
+        }
+        else{
+            this.word1 = "".intern();
+            this.word2 = "".intern();
+        }
     }
 
     public String getWord1() {
@@ -40,11 +50,11 @@ public class Bigrama implements Serializable{
     }
 
     public void setWord1(String word1) {
-        this.word1 = word1;
+        this.word1 = word1.intern();
     }
 
     public void setWord2(String word2) {
-        this.word2 = word2;
+        this.word2 = word2.intern();
     }
 
     @Override

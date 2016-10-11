@@ -9,6 +9,7 @@ import Modelo.Bigrama;
 import Modelo.BigramaContenedor;
 import Vista.Vista;
 import Vista.VistaConsola;
+import java.nio.MappedByteBuffer;
 import java.util.Map;
 
 /**
@@ -46,6 +47,14 @@ public class BigramaControlador {
 
     public Vista getVista() {
         return vista;
+    }
+
+    public void setBuffer(MappedByteBuffer buffer) {
+        this.modelo.setBuffer(buffer);
+    }
+
+    public MappedByteBuffer getBuffer() {
+        return this.modelo.getBuffer();
     }
 
     public Map<Bigrama, Integer> getBigramaHashMap() {
@@ -87,6 +96,53 @@ public class BigramaControlador {
                 modelo.getHashMap().put(bigrama, (val == null ? 0 : val) + 1);
                 posPrimerBigrama = posSegundoBigrama;
                 posSegundoBigrama = i < (modelo.getArchivo().length() - 1) ? i + 1 : i;
+            }
+        }
+    }
+
+    public void cargarBigramasByChunks() {
+        String bigramaString;
+        Bigrama bigrama;
+        int cantEspacios = 0;
+        int posPrimerBigrama = 0;
+        int posSegundoBigrama = 0;
+        Integer valor;
+
+        // Encuentra el primer bigrama y guarda la posicion
+        for (int i = 0; i < modelo.getBuffer().limit(); i++) {
+            if ((char)modelo.getBuffer().get(i) == ' ') {
+                cantEspacios++;
+                if (cantEspacios == 1) {
+                    posPrimerBigrama = i < (modelo.getBuffer().limit() - 1) ? i + 1 : i;
+                }
+                if (cantEspacios == 2) {
+                    byte[] bs = new byte[i];
+                    modelo.getBuffer().position(0);
+                    modelo.getBuffer().get(bs, 0, i);
+                    bigramaString = new String(bs);
+                    bigrama = new Bigrama(bigramaString.split(" "));
+                    posSegundoBigrama = i < (modelo.getBuffer().limit() - 1) ? i + 1 : i;
+                    valor = modelo.getHashMap().get(bigrama);
+                    modelo.getHashMap().put(bigrama, (valor == null ? 0 : valor) + 1);
+                    break;
+                }
+            }
+        }
+
+        // Carga el resto de bigramas usando la posicion del primer bigrama
+        modelo.getBuffer().position(posSegundoBigrama);
+        for (int i = posSegundoBigrama; i < modelo.getBuffer().limit(); i++) {
+            if ((char)modelo.getBuffer().get(i) == ' ') {
+                byte[] bs = new byte[i - posPrimerBigrama];
+                modelo.getBuffer().position(posPrimerBigrama);
+                modelo.getBuffer().get(bs, 0, (i - posPrimerBigrama));
+                bigramaString = new String(bs);
+                bigrama = new Bigrama(bigramaString.split(" "));
+                Integer val = modelo.getHashMap().get(bigrama);
+                modelo.getHashMap().put(bigrama, (val == null ? 0 : val) + 1);
+                posPrimerBigrama = posSegundoBigrama;
+                posSegundoBigrama = i < (modelo.getBuffer().limit() - 1) ? i + 1 : i;
+                modelo.getBuffer().position(i);
             }
         }
     }
